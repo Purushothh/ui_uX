@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Gamification</title>
+    <link rel="stylesheet" href="CSS/Styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <link rel="stylesheet" href="css/themes/my-custom-theme.css" />
+    <link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css" />
+    <script>
+        function gotoHome() {
+            document.location.href = "C:\\Users\\Purushoth\\Desktop\\main\\jquery\\Chapter\\MyApp.html#homePage"
+        };
+        function gotoprofile() {
+            document.location.href = "C:\\Users\\Purushoth\\Desktop\\main\\purushoth\\iphone\\description.html"
+        };
+        function gotoNavbar(){
+            document.location.href = "C:\\Users\\Purushoth\\Desktop\\main\\senthan\\iphone\\index.html";
+        };
+        function  gotoQr(){
+            document.location.href = "C:\\Users\\Purushoth\\Desktop\\main\\senthan\\iphone\\qr.html";
+        };
+    
+    
+    </script>
+
+
+
+    <style>
+        .Leaderboardtrain {
+            border-radius: 50%;
+            height: 100px;
+            width: 140px;
+            margin-top: 40%;
+        }
+
+        @media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+            .Leaderboardtrain {
+                border-radius: 50%;
+                height: 250px;
+                width: 350px;
+                margin-top: 20%;
+            }
+
+
+        }
+
+        .rewardheading {
+            color: black;
+        }
+
+        .messagebox {
+            text-align: center;
+            border: 3px solid cornflowerblue;
+            height: 100%;
+            background-color: cornflowerblue;
+            padding: 10px 10px 10px 10px;
+        }
+
+        .offerbox {
+            margin: auto;
+            width: 80%;
+            border: 3px solid rgb(122, 122, 122);
+            padding: 10px 10px 10px 10px;
+            background-color: cornsilk;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div data-role="page" class="ui-content">
+
+        <div data-role="header">
+            <a id="headercolor" href="#">
+                <img onclick="gotoNavbar()" id="Qrcode" src="IMAGES\Burger.png">
+                <img onclick="gotoQr()" id="Logo" src="IMAGES\qrcode.png">
+            </a>
+        </div>
+
+        <div data-role="main" >
+            <img class="Leaderboardtrain" src="IMAGES\train.jpg" />
+            <h1 class="rewardheading"style="font-size: 3em;">Rewards</h1>
+
+            <div class="messagebox">
+                <h1 id="levelsetup" class="rewardheading" style="font-size: 3em;">Level 2!</h1>
+                <br>
+                <div class="offerbox">
+                    <p style="font-size: 2em;">You have won 10% off of your next trip your promo code is EW10</p>
+                </div>
+                <br>
+                <div class="offerbox">
+                    <p style="font-size: 2em;">You have won 25% off of your next trip your promo code is EW25</p>
+                </div>
+            </div>
+        </div>
+
+        <div data-role="footer" data-position="fixed">
+            <!-- fixed footer -->
+            <div data-role="navbar">
+                <ul>
+                    <li><a onclick="gotoHome()" data-icon="arrow-l"></a></li>
+                    <li><a onclick="gotoHome()" data-icon="home"></a></li>
+                    <li><a onclick="gotoprofile()" data-icon="user"></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

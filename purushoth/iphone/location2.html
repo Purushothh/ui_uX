@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Location</title>
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCd_3DlBFMAnte2z0Zd87ix0Qi4jaan7JE&callback=initMap&libraries=&v=weekly"
+        defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="../packages/jquery.mobile-1.4.5.min.css" />
+    <script src="..//packages/jquery-1.11.1.min.js"></script>
+    <script src="../packages/jquery.mobile-1.4.5.min.js"></script>
+    <script src="..//packages/a076d05399.js"></script>
+    <script src="myjquery.js"></script>
+    <script>
+        function gotoNavbar() {
+            document.location.href = "/Users/senthan/Desktop/Uiux submission /main/senthan/iphone/message1.html";
+        };
+    </script>
+
+
+    <style type="text/css">
+        /* Set the size of the div element that contains the map */
+
+        #map {
+            height: 200px;
+            /* The height is 400 pixels */
+            width: 100%;
+            /* The width is the width of the web page */
+        }
+    </style>
+
+
+    <script>
+        // Initialize and add the map
+        function initMap() {
+            // The location of Uluru
+            const uluru = {
+                lat: 51.4975,
+                lng: 0.1357
+            };
+            const uluru1 = {
+                lat: 0.1357,
+                lng: 0.1357
+            };
+            // The map, centered at Uluru
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 8,
+                center: uluru,
+
+
+            });
+            // The marker, positioned at Uluru
+            const marker = new google.maps.Marker({
+                position: uluru,
+                map: map,
+            });
+        }
+    </script>
+</head>
+
+
+
+<body>
+    <div class="container">
+        <div data-role="header" class="flex">
+            <img class="locationImg" align="middle" src="../assets/images/download5.jpg" alt="user" width="400"
+                height="250">
+            <h1 class="heading">Westminster Abbey</h1>
+
+        </div>
+
+
+        <br>
+        <div class="block btn-group" data-role="controlgroup" data-type="horizontal">
+            <button class="btn" onclick="window.location.href='Overview2.html'">Overview</button>
+            <button class="btn" onclick="window.location.href='Location2.html'">Location</button>
+            <button class="btn" onclick="">Review</button>
+        </div>
+        <!--The div element for the map  -->
+        <h3 style="text-align:center">Location</h3>
+        <div id="map"></div>
+
+        <div id="mapIconGroup" class="flex">
+            <i onclick="window.location.href='Description.html'" class="fa fa-home"></i>
+            <i onclick="window.location.href='Description.html'" class="fa fa-clock"></i>
+            <i onclick="window.location.href='Description.html'" class="fa fa-train"></i>
+            <i onclick="window.location.href='Description.html'" class="fa fa-user"></i>
+        </div>
+
+        <p class="locationDescription  show-read-more">
+            The Westminster Highway Recreational Trail is a cycling and running route from No. 6 Road to No. 8 Road,
+            along the Westminster Highway corridor.
+            From this trail there are great views of North Shore mountain ranges, farm land and agricultural activities
+            along the trail; however, the recreational trail runs adjacent to Westminster Highway traffic flow, and
+            vehicle congestion can become quite heavy during the peak traffic periods of 7:30-9:00am and from
+            3:30-6:30pm.
+
+        </p>
+
+
+        <div id="videobox" role="main" class="ui-content">
+            <h3 style="text-align:center">Watch some videos here</h3>
+            <iframe width="350" height="200" src="https://www.youtube.com/embed/HVmT9WbQkO0" frameborder="1"
+                allowfullscreen></iframe>
+        </div>
+
+
+
+    </div>
+    <!-- toolbar with icons -->
+    <div data-role="footer" data-position="fixed">
+        <!-- fixed footer -->
+        <div data-role="navbar">
+            <ul>
+                <li>
+                    <a onclick="window.location.href='overview2.html'" data-icon="arrow-l"></a>
+                </li>
+                <li>
+                    <a onclick="window.location.href='C:\\Users\\Purushoth\\Desktop\\main\\jquery\\Chapter\\MyApp.html#homePage'" data-icon="home"></a>
+                </li>
+                <li>
+                    <a onclick="window.location.href='Description.html'" data-icon="user"></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>

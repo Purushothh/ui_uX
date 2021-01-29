@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" href="../packages/jquery.mobile-1.4.5.min.css" />
+    <script src="..//packages/jquery-1.11.1.min.js"></script>
+    <script src="../packages/jquery.mobile-1.4.5.min.js"></script>
+    <script src="myjquery.js"></script>
+    <script src="..//packages/a076d05399.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-database.js"></script>
+    <script src="https://cdn.firebase.com/js/client/2.3.2/firebase.js"></script>
+    <script src="config.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css'>
+    <link rel='stylesheet' href='https://codepen.io/depy/pen/LaXVEK.css'>
+
+
+    <script>
+        function goToMessage() {
+            document.location.href = "./message2.html";
+        }
+
+        function gotoHome() {
+            document.location.href = "C:\\Users\\Purushoth\\Desktop\\main\\jquery\\Chapter\\MyApp.html#homePage";
+        };
+
+        function gotoNavbar() {
+            document.location.href = "C:\\Users\\Purushoth\\Desktop\\main\\senthan\\iphone\\index.html";
+        };
+
+        function gotoprofile() {
+            document.location.href = "/Users/senthan/Desktop/Uiux submission /main/purushoth/iphone/description.html"
+        };
+        $(document).ready(function () {
+            $('.category').on('change', function () {
+                var category_list = [];
+                $('#filters :input:checked').each(function () {
+                    var category = $(this).val();
+                    category_list.push(category);
+                });
+
+                if (category_list.length == 0)
+                    $('.resultblock').fadeIn();
+                else {
+                    $('.resultblock').each(function () {
+                        var item = $(this).attr('data-tag');
+                        if (jQuery.inArray(item, category_list) > -1)
+                            $(this).fadeIn('slow');
+                        else
+                            $(this).hide();
+                    });
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div data-role="header" class="flex">
+            <i style="font-size: 25px;" class="fas fa-bars ui-btn-left" onclick="gotoNavbar()"></i>
+            <img class="locationImg" align="middle" src="../assets/images/download.jpg" alt="user" width="300"
+                height="300">
+            <h1 class="heading">Favourites</h1>
+        </div>
+
+        <br><br>
+
+
+
+
+        <div class="checkBoxGroup" id="filters">
+
+            <div class="checkbox">
+                <input id="check1" type="checkbox" name="check" value="West_England" class="category">
+                <label for="check1">West England</label>
+            </div>
+
+            <div class="checkbox">
+                <input id="check2" type="checkbox" name="check" value="Most_visited" class="category">
+                <label for="check2">Most visited</label>
+            </div>
+
+            <div class="checkbox">
+                <input id="check3" type="checkbox" name="check" value="Vacation_spots" class="category">
+                <label for="check3">Vacation spots</label>
+            </div>
+            <div class="checkbox">
+                <input id="check4" type="checkbox" name="check" value="South_Whales" class="category">
+                <label for="check4">South Whales</label>
+            </div>
+        </div>
+
+        <form class="ui-filterable flex">
+            <input id="filterBasic-input" data-type="search">
+        </form>
+
+
+        <br>
+        <h1 style="text-align: center"> Filtered Results</h1>
+
+        <div id="placeContainer">
+            <div class="searchresults flex" data-role="listview" data-filter="true" data-input="#filterBasic-input">
+                <div id="place" class="resultblock" data-tag="West_England">
+                    <img id="placeImage" onclick="window.location.href='overview.html'"
+                        src="../assets/images/download4.jpg" alt="">
+                    <div>
+                        <div>
+                            <h2 id="placeTitle">Stonehenge</h2>
+                            <h3 id="placeDescription">West England</h3>
+                        </div>
+                        <div id="rating">
+                            <!-- Rating Stars Box -->
+                            <div class='rating-stars text-center'>
+                                <ul id='stars' data-value="1">
+                                    <li class='star' title='Poor' data-value='1'>
+                                        <i class='fa fa-star fa-fw'></i>
+                                    </li>
+                                    <li class='star' title='Fair' data-value='2'>
+                                        <i class='fa fa-star fa-fw'></i>
+                                    </li>
+                                    <li class='star' title='Good' data-value='3'>
+                                        <i class='fa fa-star fa-fw'></i>
+                                    </li>
+                                    <li class='star' title='Excellent' data-value='4'>
+                                        <i class='fa fa-star fa-fw'></i>
+                                    </li>
+                                    <li class='star' title='WOW!!!' data-value='5'>
+                                        <i class='fa fa-star fa -fw'></i>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+                <div id="place" class="resultblock" data-tag="Most_visited">
+                    <img id="placeImage" onclick="window.location.href='overview2.html'"
+                        src="../assets/images/download2.jpg" alt="">
+                    <div>
+                        <div>
+                            <h2 id="placeTitle">Westminster</h2>
+                            <h3 id="placeDescription">Central England</h3>
+                        </div>
+                        <div id="rating">
+
+                            <!-- Rating Stars Box -->
+                            <div class='rating-stars text-center'>
+
+                                <ul id='stars' data-value="2">
+                                    <li class='star' title='Poor' data-value='1'>
+                                        <i class='fa fa-star fa-fw'></i>
+                                    </li>
+                                    <li class='star' title='Fair' data-value='2'>
+                                        <i class='fa fa-star fa-fw'></i>
+                                    </li>
+                                    <li class='star' title='Good' data-value='3'>
+                                        <i class='fa fa-star fa-fw'></i>
+                                    </li>
+                                    <li class='star' title='Excellent' data-value='4'>
+                                        <i class='fa fa-star fa-fw'></i>
+                                    </li>
+                                    <li class='star' title='WOW!!!' data-value='5'>
+                                        <i class='fa fa-star fa -fw'></i>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div id="place" class="resultblock" data-tag="Vacation_spots">
+                    <img id="placeImage" src="../assets/images/download3.jpg" alt="">
+                    <div>
+                        <div>
+                            <h2 id="placeTitle">Parliment</h2>
+                            <h3 id="placeDescription">West England</h3>
+                        </div>
+                        <div id="rating">
+                            <!-- Rating Stars Box -->
+                            <div class='rating-stars text-center'>
+                                <ul id='stars' data-value="3">
+                                    <li class='star' title='Poor' data-value='1'>
+                                        <i class='fa fa-star fa-fw'></i>
+                                    </li>
+                                    <li class='star' title='Fair' data-value='2'>
+                                        <i class='fa fa-star fa-fw'></i>
+                                    </li>
+                                    <li class='star' title='Good' data-value='3'>
+                                        <i class='fa fa-star fa-fw'></i>
+                                    </li>
+                                    <li class='star' title='Excellent' data-value='4'>
+                                        <i class='fa fa-star fa-fw'></i>
+                                    </li>
+                                    <li class='star' title='WOW!!!' data-value='5'>
+                                        <i class='fa fa-star fa -fw'></i>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div id="place" class="resultblock" data-tag="South_Whales">
+                    <img id="placeImage" src="../assets/images/download4.jpg" alt="">
+                    <div>
+                        <div>
+                            <h2 id="placeTitle">Stonehenge</h2>
+                            <h3 id="placeDescription">West England</h3>
+                        </div>
+                        <div id="rating">
+                            <!-- Rating Stars Box -->
+                            <div class='rating-stars text-center'>
+                                <ul id='stars' data-value="4">
+                                    <li class='star' title='Poor' data-value='1'>
+                                        <i class='fa fa-star fa-fw'></i>
+                                    </li>
+                                    <li class='star' title='Fair' data-value='2'>
+                                        <i class='fa fa-star fa-fw'></i>
+                                    </li>
+                                    <li class='star' title='Good' data-value='3'>
+                                        <i class='fa fa-star fa-fw'></i>
+                                    </li>
+                                    <li class='star' title='Excellent' data-value='4'>
+                                        <i class='fa fa-star fa-fw'></i>
+                                    </li>
+                                    <li class='star' title='WOW!!!' data-value='5'>
+                                        <i class='fa fa-star fa -fw'></i>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- toolbar with icons -->
+            <div data-role="footer" data-position="fixed">
+                <!-- fixed footer -->
+                <div data-role="navbar">
+                    <ul>
+                        <li>
+                            <a onclick="gotoHome()" data-icon="arrow-l"></a>
+                        </li>
+                        <li>
+                            <a onclick="gotoHome()" data-icon="home"></a>
+                        </li>
+                        <li>
+                            <a onclick="gotoprofile()" data-icon="user"></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="rating.json"></script>
+        <script>
+            $(document).ready(function () {
+
+
+                /* read from firebase */
+
+                var places = $('[id=stars]');
+                var database = firebase.database();
+
+                var ref = database.ref("records");
+                ref.on('value', function(snapshot) {
+                    let xa = [];
+                    snapshot.forEach(function(childsnapshot) {
+                        var rate = childsnapshot.val().rating;
+                        console.log(rate);
+                        xa.push(rate);
+
+                    })
+                    for (j = 0; j < places.length; j++) {
+                        var stars = $(places[j]).find("li").parent().children('li.star');
+                        for (i = 0; i < stars.length; i++) {
+                            $(stars[i]).removeClass('selected');
+                        }
+
+                        for (i = 0; i < xa[j]; i++) {
+                            $(stars[i]).addClass('selected');
+                        }
+
+                    }
+
+                });
+
+
+                /* 1. Visualizing things on Hover - See next part for action on click */
+                $('#stars li').on('mouseover', function () {
+                    var onStar = parseInt($(this).data('value'), 10); // The star currently mouse on
+
+                    // Now highlight all the stars that's not after the current hovered star
+                    $(this).parent().children('li.star').each(function (e) {
+                        if (e < onStar) {
+                            $(this).addClass('hover');
+                        } else {
+                            $(this).removeClass('hover');
+                        }
+                    });
+
+                }).on('mouseout', function () {
+                    $(this).parent().children('li.star').each(function (e) {
+                        $(this).removeClass('hover');
+                    });
+                });
+                /* 2. Action to perform on */
+
+
+                /* 2. Action to perform on click */
+                $('#stars li').on('click', function () {
+                    var placeid = $(this).parent('ul').data('value');
+                    var onStar = parseInt($(this).data('value'), 10); // The star currently selected]                    
+                    var stars = $(this).parent().children('li.star');
+
+
+                    for (i = 0; i < stars.length; i++) {
+                        $(stars[i]).removeClass('selected');
+                    }
+
+                    for (i = 0; i < onStar; i++) {
+                        $(stars[i]).addClass('selected');
+                    }
+
+                    /* WRITE TO FIREBASE */
+                    firebase.database().ref('records/' + placeid).update({
+                        rating: onStar
+                    });
+                })
+
+                // JUST RESPONSE (Not needed)
+                var ratingValue = parseInt($('#stars li.selected').last().data('value'), 10);
+                var msg = "";
+                if (ratingValue > 1) {
+                    msg = "Thanks! You rated this " + ratingValue + " stars.";
+                } else {
+                    msg = "We will improve in future";
+                }
+                responseMessage(msg);
+
+            });
+
+
+            function responseMessage(msg) {
+                $('.success-box').fadeIn(200);
+                $('.success-box div.text-message').html("<span>" + msg + "</span>");
+            }
+        </script>
+
+</html>

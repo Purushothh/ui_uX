@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Location</title>
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCd_3DlBFMAnte2z0Zd87ix0Qi4jaan7JE&callback=initMap&libraries=&v=weekly"
+        defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="../packages/jquery.mobile-1.4.5.min.css" />
+    <script src="..//packages/jquery-1.11.1.min.js"></script>
+    <script src="../packages/jquery.mobile-1.4.5.min.js"></script>
+    <script src="..//packages/a076d05399.js"></script>
+    <script src="myjquery.js"></script>
+    <style>
+        body {
+            font-family: "Open Sans", Helvetica, Arial, sans-serif;
+            color: #555;
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        * {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        *:before,
+        *:after {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        .custom-model-main {
+            text-align: center;
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            /* z-index: 1050; */
+            -webkit-overflow-scrolling: touch;
+            outline: 0;
+            opacity: 0;
+            -webkit-transition: opacity 0.15s linear, z-index 0.15;
+            -o-transition: opacity 0.15s linear, z-index 0.15;
+            transition: opacity 0.15s linear, z-index 0.15;
+            z-index: -1;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+
+        .model-open {
+            z-index: 99999;
+            opacity: 1;
+            overflow: hidden;
+        }
+
+        .custom-model-inner {
+            -webkit-transform: translate(0, -25%);
+            -ms-transform: translate(0, -25%);
+            transform: translate(0, -25%);
+            -webkit-transition: -webkit-transform 0.3s ease-out;
+            -o-transition: -o-transform 0.3s ease-out;
+            transition: -webkit-transform 0.3s ease-out;
+            -o-transition: transform 0.3s ease-out;
+            transition: transform 0.3s ease-out;
+            transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out;
+            display: inline-block;
+            vertical-align: middle;
+            width: 600px;
+            margin: 30px auto;
+            max-width: 97%;
+        }
+
+        .custom-model-wrap {
+            display: block;
+            width: 100%;
+            position: relative;
+
+            background-color: #1a508b;
+
+            border: 1px solid #999;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            border-radius: 6px;
+            -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+            background-clip: padding-box;
+            outline: 0;
+            text-align: left;
+            padding: 20px;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            max-height: calc(100vh - 70px);
+            overflow-y: auto;
+        }
+
+        .model-open .custom-model-inner {
+            -webkit-transform: translate(0, 0);
+            -ms-transform: translate(0, 0);
+            transform: translate(0, 0);
+            position: relative;
+            z-index: 999;
+        }
+
+        .model-open .bg-overlay {
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 99;
+        }
+
+        .bg-overlay {
+            background: rgba(0, 0, 0, 0);
+            height: 100vh;
+            width: 100%;
+            position: fixed;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 0;
+            -webkit-transition: background 0.15s linear;
+            -o-transition: background 0.15s linear;
+            transition: background 0.15s linear;
+        }
+
+        .close-btn {
+            position: absolute;
+            right: 0;
+            top: -30px;
+            cursor: pointer;
+            z-index: 99;
+            font-size: 30px;
+            color: #fff;
+        }
+
+        @media screen and (min-width:800px) {
+            .custom-model-main:before {
+                content: "";
+                display: inline-block;
+                height: auto;
+                vertical-align: middle;
+                margin-right: -0px;
+                height: 100%;
+            }
+        }
+
+        @media screen and (max-width:799px) {
+            .custom-model-inner {
+                margin-top: 45px;
+            }
+        }
+
+
+
+
+
+        .clearfix {
+            clear: both;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        a {
+            color: tomato;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #2196f3;
+        }
+
+        .box {
+            background-color: #007bff;
+        }
+
+        .success-box {
+            margin: 50px 15px;
+            padding: 20px 5px;
+            border: 1px solid #eee;
+            background: #f9f9f9;
+        }
+
+        .success-box img {
+            margin-right: 10px;
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .success-box>div {
+            vertical-align: top;
+            display: inline-block;
+            color: #888;
+            color: #888;
+            font-size: 30px;
+        }
+
+
+
+        /* Rating Star Widgets Style */
+        .rating-stars ul {
+            list-style-type: none;
+            padding: 0;
+
+            -moz-user-select: none;
+            -webkit-user-select: none;
+        }
+
+        .rating-stars ul>li.star {
+            display: inline-block;
+
+        }
+
+        /* Idle State of the stars */
+        .rating-stars ul>li.star>i.fa {
+            font-size: 3.5em;
+            /* Change the size of the stars */
+            color: rgb(255, 255, 255);
+            /* Color on idle state */
+        }
+
+        /* Hover state of the stars */
+        .rating-stars ul>li.star.hover>i.fa {
+            color: #FFCC36;
+        }
+
+        /* Selected state of the stars */
+        .rating-stars ul>li.star.selected>i.fa {
+            color: #FF912C;
+        }
+
+        .rating-widget {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgb(0 0 0);
+            color: #343a40;
+            border-radius: 10px;
+            border: 1px solid black;
+            width: 50%;
+            height: 20%;
+        }
+
+        .start_btn button {
+            font-size: 25px;
+            font-weight: 500;
+            color: #007bff;
+            padding: 15px 30px;
+            outline: none;
+            border: none;
+            border-radius: 5px;
+            background: #fff;
+            cursor: pointer;
+        }
+
+        .start_btn {
+            position: absolute;
+            top: 30%;
+            left: 25%;
+            transform: -50%, -50%;
+        }
+    </style>
+    <script>
+        function gotoReview() {
+            document.location.href = "/Users/senthan/Desktop/Uiux submission /main/senthan/iphone/message1.html";
+        };
+
+    </script>
+
+</head>
+
+
+
+<body>
+    <div class="container">
+        <div data-role="header" class="flex">
+            <img class="locationImg" align="middle" src="../assets/images/download4.jpg" alt="user" width="400"
+                height="250">
+            <h1 class="heading">Stonehenge</h1>
+            <!-- <a class="ui-btn-left" onclick="window.location.href='description.html'">back</a> -->
+        </div>
+
+
+
+
+        <div class="block btn-group" data-role="controlgroup" data-type="horizontal">
+            <button class="btn" onclick="window.location.href='Overview.html'">Overview</button>
+            <button class="btn" onclick="window.location.href='Location.html'">Location</button>
+            <button class="btn" onclick="gotoReview()">Review</button>
+        </div>
+
+        <div class="placeInformation">
+            <h3 class="title">Place Information</h3>
+            <p class="locationDescription  show-read-more">Stonehenge, prehistoric stone circle monument, cemetery, and
+                archaeological
+                site located on Salisbury Plain, about 8 miles (13 km) north of Salisbury, Wiltshire, England. Though
+                there is no definite evidence as to the intended purpose of Stonehenge,
+                it was presumably a religious site and an expression of the power and wealth of the chieftains,
+                aristocrats, and priests who had it built—many of whom were buried in the numerous barrows close by.
+                <br>
+                One of the most famous landmarks in the United Kingdom, Stonehenge is regarded as a British cultural
+                icon. It has been a legally protected Scheduled Ancient Monument since 1882, when legislation to
+                protect historic monuments was first successfully introduced in Britain. The site and its surroundings
+                were added to UNESCO's list of World Heritage Sites in 1986. Stonehenge is owned by the Crown and
+                managed by English Heritage; the surrounding land is owned by the National Trust. 
+            </p>
+
+            <div id="wishBtnGroup" class="flex">
+                <i onclick="window.location.href='description.html'" class="fa fa-external-link-alt"></i>
+                <i class="fa fa-heart Click-here" style="color:rgb(170, 31, 31);"></i>
+
+                <div class="custom-model-main">
+                    <div class="custom-model-inner">
+                        <div class="close-btn">×</div>
+                        <div class="custom-model-wrap">
+                            <div class="pop-up-content-wrap">
+
+                                <!-- Rating Stars Box -->
+                                <div class='rating-stars text-center'>
+                                    <ul id='stars'>
+                                        <li class='star' title='Poor' data-value='1'>
+                                            <i class='fa fa-star fa-fw'></i>
+                                        </li>
+                                        <li class='star' title='Fair' data-value='2'>
+                                            <i class='fa fa-star fa-fw'></i>
+                                        </li>
+                                        <li class='star' title='Good' data-value='3'>
+                                            <i class='fa fa-star fa-fw'></i>
+                                        </li>
+                                        <li class='star' title='Excellent' data-value='4'>
+                                            <i class='fa fa-star fa-fw'></i>
+                                        </li>
+                                        <li class='star' title='WOW!!!' data-value='5'>
+                                            <i class='fa fa-star fa -fw'></i>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class='success-box'>
+                                    <div class='clearfix'></div>
+                                    <img alt='tick image' width='32'
+                                        src='data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeD0iMHB4IiB5PSIwcHgiIHZpZXdCb3g9IjAgMCA0MjYuNjY3IDQyNi42NjciIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDQyNi42NjcgNDI2LjY2NzsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSI1MTJweCIgaGVpZ2h0PSI1MTJweCI+CjxwYXRoIHN0eWxlPSJmaWxsOiM2QUMyNTk7IiBkPSJNMjEzLjMzMywwQzk1LjUxOCwwLDAsOTUuNTE0LDAsMjEzLjMzM3M5NS41MTgsMjEzLjMzMywyMTMuMzMzLDIxMy4zMzMgIGMxMTcuODI4LDAsMjEzLjMzMy05NS41MTQsMjEzLjMzMy0yMTMuMzMzUzMzMS4xNTcsMCwyMTMuMzMzLDB6IE0xNzQuMTk5LDMyMi45MThsLTkzLjkzNS05My45MzFsMzEuMzA5LTMxLjMwOWw2Mi42MjYsNjIuNjIyICBsMTQwLjg5NC0xNDAuODk4bDMxLjMwOSwzMS4zMDlMMTc0LjE5OSwzMjIuOTE4eiIvPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8L3N2Zz4K' />
+                                    <div class='text-message'></div>
+                                    <div class='clearfix'></div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-overlay"></div>
+                </div>
+            </div>
+        </div>
+
+        <h3 class="title">More Images</h3>
+        <div class="row">
+            <div class="column">
+                <img src="../assets/images/stone1.jpg" alt="stone" style="width:100%">
+            </div>
+            <div class="column">
+                <img src="../assets/images/stone2.jpg" alt="stone" style="width:100%">
+            </div>
+            <div class="column">
+                <img src="../assets/images/stone1.jpg" alt="stone" style="width:100%">
+            </div>
+        </div>
+
+        <div id="videobox" role="main" class="ui-content">
+            <h3 style="text-align:center">Watch a vedio to know!</h3>
+            <iframe width="350" height="200" src="https://www.youtube.com/embed/BTwuKCqFwJY" frameborder="1"
+                allowfullscreen></iframe>
+        </div>
+        <br>
+        <div id="videobox" role="main" class="ui-content">
+            <iframe width="350" height="200" src="https://www.youtube.com/embed/eCA9ldgIIcY" frameborder="1"
+                allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <!--
+        <div class="flex" data-role="footer">
+            <i onclick="window.location.href='Description.html'" class="footerBtn fa fa-chevron-left"></i>
+            <i onclick="window.location.href='Description.html'" class="footerBtn fa fa-home"></i>
+            <i onclick="window.location.href='Description.html'" class="footerBtn fa fa-user"></i>
+        </div> -->
+
+    <!-- toolbar with icons -->
+    <div data-role="footer" data-position="fixed">
+        <!-- fixed footer -->
+        <div data-role="navbar">
+            <ul>
+                <li>
+                    <a onclick="window.location.href='description.html'" data-icon="arrow-l"></a>
+                </li>
+                <li>
+                    <a onclick="window.location.href='C:\\Users\\Purushoth\\Desktop\\main\\jquery\\Chapter\\MyApp.html#homePage'" data-icon="home"></a>
+                </li>
+                <li>
+                    <a onclick="window.location.href='description.html'" data-icon="user"></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    </div>
+    <script>
+        $(".Click-here").on('click', function () {
+            $(".custom-model-main").addClass('model-open');
+        });
+        $(".close-btn, .bg-overlay").click(function () {
+            $(".custom-model-main").removeClass('model-open');
+        });
+
+        $(document).ready(function () {
+
+            /* 1. Visualizing things on Hover - See next part for action on click */
+            $('#stars li').on('mouseover', function () {
+                var onStar = parseInt($(this).data('value'), 10); // The star currently mouse on
+
+                // Now highlight all the stars that's not after the current hovered star
+                $(this).parent().children('li.star').each(function (e) {
+                    if (e < onStar) {
+                        $(this).addClass('hover');
+                    }
+                    else {
+                        $(this).removeClass('hover');
+                    }
+                });
+
+            }).on('mouseout', function () {
+                $(this).parent().children('li.star').each(function (e) {
+                    $(this).removeClass('hover');
+                });
+            });
+
+
+            /* 2. Action to perform on click */
+            $('#stars li').on('click', function () {
+                var onStar = parseInt($(this).data('value'), 10); // The star currently selected
+                var stars = $(this).parent().children('li.star');
+
+                for (i = 0; i < stars.length; i++) {
+                    $(stars[i]).removeClass('selected');
+                }
+
+                for (i = 0; i < onStar; i++) {
+                    $(stars[i]).addClass('selected');
+                }
+
+                // JUST RESPONSE (Not needed)
+                var ratingValue = parseInt($('#stars li.selected').last().data('value'), 10);
+                var msg = "";
+                if (ratingValue > 1) {
+                    msg = "Thanks! You rated this " + ratingValue + " stars.";
+                }
+                else {
+                    msg = "We will improve in future";
+                }
+                responseMessage(msg);
+            });
+
+        });
+        function responseMessage(msg) {
+            $('.success-box').fadeIn(200);
+            $('.success-box div.text-message').html("<span>" + msg + "</span>");
+        }
+
+
+
+    </script>
+</body>
+
+
+</html>

@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>QR+6
+        0
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../lib/jquery.mobile-1.4.5.min.css" />
+    <script src="../lib/jquery-1.11.1.min.js"></script>
+    <script src="../lib/jquery.mobile-1.4.5.min.js"></script>
+    <script src="https://kit.fontawesome.com/2d990cff29.js" crossorigin="anonymous"></script>
+    <script src="../js/common.js"></script>
+    <script defer src="https://friconix.com/cdn/friconix.js"></script>
+    <script>
+
+        function gotoHome() {
+            document.location.href = "C:\\Users\\Purushoth\\Desktop\\main\\jquery\\Chapter\\MyApp.html#homePage";
+           
+        };
+        function gotoprofile() {
+            document.location.href = "C:\\Users\\Purushoth\\Desktop\\main\\purushoth\\iphone\\description.html"
+        };
+        function gotoNavbar() {
+            document.location.href = "C:\\Users\\Purushoth\\Desktop\\main\\senthan\\iphone\\index.html";
+        };
+
+    </script>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+
+    <script crossorigin="anonymous" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+
+    <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
+    <style>
+        .header-bar {
+            /* background-color: #861657; */
+
+            /* background-image: linear-gradient(326deg, #240046 0%, #5a189a 80%); */
+            background-image: linear-gradient( #1a508b 90%, #240046 100%);
+            height: 60px !important;
+            display: flex;
+            align-items: center;
+        }
+
+        body{
+            /* background-color: #2574A9 !important; */
+        }
+
+        .header-bar .back-icon {
+            float: left;
+            margin-left: 15px;
+            color: white;
+        }
+
+        .header-bar .page-detail {
+            color: white;
+            letter-spacing: 2px;
+            font-weight: 100;
+            font-size: 20px;
+            text-shadow: none;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* .page-detail{
+            padding-bottom: 40em;
+        } */
+
+        .footerBtn .ui-btn {
+            line-height: 2.3 !important;
+            font-family: sans-serif;
+            font-size: 15px !important;
+            background-color: white !important;
+            border-left-width: 0px !important;
+            border-right-width: 0px !important;
+            border-top-width: 0px !important;
+            border-bottom-width: 0px !important;
+        }
+
+        .footerBtn .ui-btn-active {
+            background-color: white !important;
+            color: rgb(21, 98, 146) !important;
+            text-shadow: none !important;
+            border-color: transparent !important;
+            border-left-width: 0px !important;
+            border-right-width: 0px !important;
+            border-top-width: 0px !important;
+            border-bottom-width: 0px !important;
+            text-shadow: none !important;
+            box-shadow: none !important;
+        }
+
+        .pro-image {
+            width: 73px;
+            height: 72px;
+            border-radius: 11%;
+            overflow: hidden;
+            margin-top: 21px;
+            margin-left: 14px;
+        }
+
+        .headmsg {
+            margin-top: 27px !important;
+        }
+
+        .ui-listview>li p {
+            font-size: 0.85em !important;
+            font-weight: 410 !important;
+
+            font-family: fangsong;
+            margin: -1.08em 0 !important;
+        }
+
+        .ui-listview>li h1,
+        .ui-listview>li h2,
+        .ui-listview>li h3,
+        .ui-listview>li h4,
+        .ui-listview>li h5,
+        .ui-listview>li h6 {
+            font-size: 1.2em;
+            font-weight: 700;
+            display: block;
+            margin: .45em 0;
+            font-family: 'Font Awesome 5 Free';
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .container-fluid{
+            width: 100%;
+            height: 100%;
+            height: 570px;
+            background-image: linear-gradient(rgb(255, 255, 255), rgba(118, 93, 172, 0.466));
+        }
+
+        .qr {
+            margin: 1rem;
+        }
+
+        .qr-code {
+            margin-top: 150px;
+            margin-bottom: 50px;
+            width: 35%;
+        }
+
+        .videoShow {
+            display: none;
+            margin-top: 150px;
+            margin-bottom: 50px;
+            max-width: 300px;
+            border-radius: 15px;
+        }
+
+        #bg-colour {
+            background-color: #d4c7e0;
+        }
+
+
+        .button2 {
+            /* background-color: #861657; */
+            background-image: linear-gradient(175deg, #2574A9 28%, #2574A9 85%);
+            color: wheat;
+            color: white !important;
+            font-size: 16px !important;
+            font-weight: 100;
+            max-width: 250px;
+
+
+        }
+
+        .button3 {
+            /* background-color: #861657; */
+            background-image: linear-gradient(191deg, #2574A9 35%, #2574A9 85%);
+            color: wheat;
+            color: white !important;
+            font-size: 16px !important;
+            font-weight: 100;
+            max-width: 250px;
+
+
+        }
+
+        .topBar {
+            height: 40px;
+            width: 100%;
+            margin-top: 0px;
+            padding-left: 15px;
+            padding-right: 15px;
+            padding-top: 10px;
+            text-align: justify;
+        }
+
+        #container {
+            text-align: center;
+        }
+
+        .ui-input-text {
+            border-style: none;
+        }
+
+        .buttonsw {
+            width: 100%;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-items: center;
+
+        }
+
+        .upload-btn-wrapper {
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            width: 400px;
+        }
+
+        .upload-btn-wrapper input[type=file] {
+            font-size: 100px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+        }
+
+        #HomePageMenuBtn {
+            height: 30px;
+            vertical-align: text-top;
+            padding-left: 10px;
+            padding-top: 10px;
+        }
+
+        @media all and (min-width: 40em) {
+            /* .button2 {
+            
+            background-image: linear-gradient(175deg, #2574A9 28%, #2574A9 85%);
+            color: wheat;
+            color: white !important;
+            font-size: 25px !important;
+            font-weight: 100;
+            max-width: 250px;
+        } */
+            /* .button3 {
+           
+            background-image: linear-gradient(191deg, #2574A9 35%, #2574A9 85%);
+            color: wheat;
+            color: white !important;
+            font-size: 25px !important;
+            font-weight: 100;
+            max-width: 280px;
+        }    */
+        }
+
+        @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
+            .button2 {
+                font-size: 25px !important;
+                font-weight: 100;
+                max-width: 400px;
+            }
+
+            .buttonsw {
+                width: 100%;
+                text-align: center;
+                display: grid;
+                justify-items: center;
+                padding-top: 12em;
+            }
+            .container-fluid{
+                height: 1024px;
+                
+            }
+
+            .button3 {
+                font-size: 25px !important;
+                font-weight: 100;
+                max-width: 400px;
+            }
+        }
+    </style>
+</head>
+
+<body >
+    <div data-role="header" data-position="fixed" class="header-bar" style="background-color: #1a508b;">
+
+        <!-- <div style="display: flex;margin-top: 3px;">
+            <span>
+                <a onclick="gotoNavbar()"><img width="30"
+                        src="/Users/senthan/Desktop/Uiux submission /main/senthan/iphone/icons8-menu-500.png"
+                        id="HomePageMenuBtn"></a>
+            </span>
+            <h1 class="page-detail">Scan QR</h1>
+            
+        </div> -->
+        <i class="fas fa-chevron-left back-icon" onclick="gotoNavbar()"></i>
+        <h1 class="page-detail">Scan QR</h1>
+    </div>
+    
+    <div class="container-fluid" >
+        <div class="text-center" style="display: flex; justify-items: center;flex-direction: column;align-items: center; " style="height: 100%;">
+            <video id="preview" class="videoShow"></video>
+            <img src="https://chart.googleapis.com/chart?cht=qr&chl=Hello+World&chs=160x160&chld=L|0"
+                class="qr-code imageHide">
+        </div>
+        <div class="buttonsw">
+            <button class="button2" onclick="myFunction()">Scan</button>
+            <div class="upload-btn-wrapper">
+                <button class="button3">Upload a file</button>
+                <input type="file" name="myfile" />
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+
+    <!-- footer  -->
+    <div data-role="footer" data-position="fixed">
+        <!-- fixed footer -->
+        <div data-role="navbar">
+            <ul>
+                <li><a onclick="gotoHome()" data-icon="arrow-l"></a></li>
+                <li><a onclick="gotoHome()" data-icon="home"></a></li>
+                <li><a onclick="gotoprofile()" data-icon="user"></a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>
+<!-- script for opening of camera -->
+<script type="text/javascript">
+    function myFunction() {
+        var scanner = new Instascan.Scanner({ video: document.getElementById('preview'), scanPeriod: 5, mirror: false });
+        var imagehide = document.getElementsByClassName('imageHide');
+        var videoshow = document.getElementsByClassName('videoShow');
+        scanner.addListener('scan', function (content) {
+            alert(content);
+
+        });
+
+        Instascan.Camera.getCameras().then(function (cameras) {
+
+            if (cameras.length > 0) {
+
+                scanner.start(cameras[0]);
+                imagehide[0].style.display = 'none';
+                videoshow[0].style.display = 'grid';
+                $('[name="options"]').on('change', function () {
+
+                    if ($(this).val() == 1) {
+
+                        if (cameras[0] != "") {
+
+                            scanner.start(cameras[0]);
+
+                        } else {
+
+                            alert('No Front camera found!');
+
+                        }
+
+                    } else if ($(this).val() == 2) {
+
+                        if (cameras[1] != "") {
+
+                            scanner.start(cameras[1]);
+
+                        } else {
+
+                            alert('No Back camera found!');
+
+                        }
+
+                    }
+
+                });
+
+            } else {
+
+                console.error('No cameras found.');
+
+                alert('No cameras found.');
+
+            }
+
+        }).catch(function (e) {
+
+            console.error(e);
+
+            alert(e);
+        });
+    }
+
+</script>

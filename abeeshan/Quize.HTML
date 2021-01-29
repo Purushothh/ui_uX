@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Gamification</title>
+    <link rel="stylesheet" href="CSS/Styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <link rel="stylesheet" href="css/themes/my-custom-theme.css" />
+    <link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css" />
+</head>
+
+<body>
+    <!--Starting Quize section-->
+    <div data-role="page" id="main">
+        <div  style="margin-top:15px;" class="start_btn">
+            <!--<button><a href="#discriptionpage" data-transition="slide">Start Quiz</a></button>-->
+            <div class="buttons">
+                <button class="StartQuiz">Start Quiz</button>
+            </div>
+        </div>
+    </div>
+
+    <!--Rules and Condition-->
+
+    <div data-role="page" id="discriptionpage">
+        <div data-role="ui-content" class="boxing">
+            <div class="info-title"><span>Some Rules of this Quiz</span></div>
+            <div class="info-list">
+                <div class="info">1. You will have only <span>15 secnds</span> to complete the one question</div>
+                <div class="info">2. You will get reward according to your points!</div>
+                <div class="info">3. You can try again if you fail to achive enough points</div>
+                <div class="info">4. You can't exit while playing</div>
+                <div class="info">5. You can select the answer onces a time</div>
+            </div>
+            <div class="buttons">
+                <button class="quit" data-transition="slide" style=" color: #1a508b;"> <a href="Gamification.HTML" rel="external" >Exit
+                        Quiz</a></button>
+                <button class="restart"><a style="color: white;" href="#coloring" data-transition="slide">Continue</a></button>
+            </div>
+        </div>
+    </div>
+
+    <!--Quize Section-->
+    <div data-role="page" id="coloring">
+        <div data-role="ui-content" class="quiz_box">
+            <header>
+                <div><h1  class="title">Awesome Quiz Application</h1></div>
+                <div class="timer">
+                    <div class="time_left_txt">Time Left</div>
+                    <div class="timer_sec">15</div>
+                </div>
+                <div class="time_line"></div>
+            </header>
+            <section>
+                <div class="que_text">
+                    <!-- Here I've inserted question from JavaScript -->
+
+                </div>
+                <div class="option_list">
+                    <!-- Here I've inserted options from JavaScript -->
+                </div>
+            </section>
+
+            <!-- footer of Quiz Box -->
+            <footer>
+                <div class="total_que">
+                    <!-- Here I've inserted Question Count Number from JavaScript -->
+                </div>
+                <div class="buttons">
+                <button id="nextbtnset" class="next_btn" >Next Que</button>
+            </div>
+            </footer>
+        </div>
+
+    </div>
+
+    <!-- Result Box -->
+    <div class="result_box">
+
+            <img src="IMAGES/cup.png" style="width:50%; border-radius: 50%; margin-left:25%; margin-right: auto;"> 
+
+        <div class="complete_text">You've completed the Quiz!</div>
+        <div class="score_text">
+            <!-- Here I've inserted Score Result from JavaScript -->
+        </div>
+        <div class="buttons">
+            <button class="restart">Replay Quiz</button>
+            <button class="quit">Quit Quiz</button>
+        </div>
+    </div>
+
+    <script src="js/questions.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

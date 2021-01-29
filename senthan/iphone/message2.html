@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Reviews</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../lib/jquery.mobile-1.4.5.min.css" />
+    <script src="../lib/jquery-1.11.1.min.js"></script>
+    <script src="../lib/jquery.mobile-1.4.5.min.js"></script>
+    <script src="https://kit.fontawesome.com/2d990cff29.js" crossorigin="anonymous"></script>
+    <script>
+        function goToMessages() {
+            document.location.href = "./message1.html";
+        }
+
+
+    </script>
+    <style>
+        .header-bar {
+            /* background-image: linear-gradient(175deg, #5a189a 0%, #240046 80%); */
+             /* background-image: linear-gradient(175deg, #5a189a 50%, #240046 100%); */
+             background-image: linear-gradient( #1a508b 90%, #240046 100%);
+            height: 60px !important;
+            display: flex;
+            align-items: center;
+        }
+
+        .header-bar .back-icon {
+            float: left;
+            margin-left: 15px;
+            color: white;
+        }
+
+        .header-bar .page-detail {
+            color: white;
+            letter-spacing: 2px;
+            font-weight: 100;
+            font-size: 20px;
+            text-shadow: none;
+            width: 100%;
+            text-align: center;
+        }
+
+        #textareaQA {
+            height: 36px !important;
+        }
+
+        #askBtn {
+            border-radius: 20px;
+            margin-top: 8px;
+            background-color: #2574A9 !important;
+            color: white;
+            text-shadow: none;
+        }
+
+        .ui-grid-a>.ui-block-a {
+            width: 75%;
+            margin-left: 10px;
+        }
+
+        .ui-grid-a>.ui-block-b {
+            width: 15%;
+        }
+
+        /* Chat containers */
+        .container {
+            
+            border: 2px solid linear-gradient(175deg, white 0%, #0f4c75 80%);
+            /* background-image: linear-gradient(360deg, #861657 0%, #ffa69e 85%); */
+            /* background-image: linear-gradient(360deg, #5a189a 0%, #7b2cbf 80%); */
+            background-image: linear-gradient(360deg, white 0%,  #0e49b5 90%);
+
+            color: white;
+            text-shadow: none;
+            border-radius: 20px;
+            padding: 10px;
+            margin: 5px;
+        }
+        
+        .light {
+            margin-left: 40%;
+        }
+
+        /* Darker chat container */
+        .darker {
+            /* border-color: #ccc; */
+            /* background-image: linear-gradient(175deg, #e0aaff 0%, #d6c5c1 85%); */
+            /* border: 2px solid linear-gradient(175deg, white 0%, #0f4c75 80%); */
+            color: black;
+            text-shadow: none;
+            margin-right: 40%;
+        }
+        .view{
+            background-image: linear-gradient(rgb(255, 255, 255), rgba(132, 113, 173, 0.466)); 
+            height: 667px;
+        }
+
+        /* Clear floats */
+        .container::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        /* Style images */
+        .container img {
+            float: left;
+            max-width: 60px;
+            width: 100%;
+            margin-right: 20px;
+            border-radius: 50%;
+        }
+
+        /* Style the right image */
+        .container img.right {
+            float: right;
+            margin-left: 20px;
+            margin-right: 0;
+        }
+
+        /* Style time text */
+        .time-right {
+            float: right;
+            color: black;
+        }
+
+        /* Style time text */
+        .time-left {
+            float: left;
+            color: black;
+        }
+
+        @media all and (min-width: 40em) {
+            .ui-grid-a {
+                width: 90%;
+                font-size: larger;
+                margin: auto;
+            }
+
+            #askBtn {
+                width: 100px;
+                font-size: large;
+                border-radius: 50px;
+            }
+
+            .header-bar {
+                height: 90px !important;
+            }
+
+            .header-bar .page-detail {
+
+                font-weight: 100;
+                font-size: 30px;
+            }
+            .header-bar .back-icon{
+                font-size: 24px;
+            }
+            .view{
+                height: 1024px;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <div data-role="header" data-position="fixed" class="header-bar" style="background-color: #1a508b;">
+        <i class="fas fa-chevron-left back-icon" onclick="goToMessages()"></i>
+        <h1 class="page-detail">Messages</h1>
+    </div>
+
+
+    <!-- <div data-role="content" id="mainPage" data-theme="a" style="background-color: #fff3e6;"> -->
+        <div data-role="content" class="view" id="mainPage" data-theme="a" >
+        <div class="container light">
+            <!--<img src="/w3images/bandmember.jpg" alt="Avatar">-->
+            <p>Hello. Have you sent my product?</p>
+            <span class="time-right">11:00</span>
+        </div>
+
+        <div class="container darker">
+            <!--<img src="/w3images/avatar_g2.jpg" alt="Avatar" class="right">-->
+            <p>Not yet sir, we are processing your order. Soon we will send it.</p>
+            <span class="time-left">11:01</span>
+        </div>
+
+        <div class="container light">
+            <!--<img src="/w3images/bandmember.jpg" alt="Avatar">-->
+            <p>Oh. Please send it as soon as possibble.</p>
+            <span class="time-right">11:02</span>
+        </div>
+
+        <div class="container darker">
+            <!--<img src="/w3images/avatar_g2.jpg" alt="Avatar" class="right">-->
+            <p>Sure sir, We will do our best.</p>
+            <span class="time-left">11:05</span>
+        </div>
+    </div>
+    <div data-role="footer" data-position="fixed" role="banner">
+        <div class="ui-grid-a">
+            <div class="ui-block-a">
+                <input type="text" id="mess" name="url" placeholder="Type a message" />
+            </div>
+            <div class="ui-block-b">
+                <button id="askBtn" data-inline="true" onclick="addMessages()" class="ui-btn">
+                    Send
+                </button>
+
+
+            </div>
+        </div>
+    </div>
+
+
+</body>
+<script>
+    function goToMessages() {
+        document.location.href = "./message1.html";
+    }
+    var is_color = false;
+    var msg_body = localStorage.getItem("chat") != null ? JSON.parse(localStorage.getItem("chat")) : [];
+    loadMessage();
+
+    function loadMessage() {
+
+        msg_body.forEach((item) => {
+            var para = document.createElement("P");
+            var time_ele = document.createElement("span");
+            var div = document.createElement("div");
+
+            var mess = item.message;
+            var time = item.time;
+            var is_color = item.isColor;
+            if (this.is_color) {
+                div.setAttribute("class", "container darker ");
+                time_ele.setAttribute("class", "time-left");
+            } else {
+                div.setAttribute("class", "container light");
+                time_ele.setAttribute("class", "time-right");
+
+            }
+            this.is_color = !this.is_color;
+            para.innerText = mess;
+            time_ele.innerHTML = time;
+            div.appendChild(para);
+            div.appendChild(time_ele);
+            var parentEl = document.getElementById("mainPage");
+            parentEl.appendChild(div);
+            // element.appendChild(t);
+
+        });
+
+    }
+
+    function addMessages() {
+        var parentEl = document.getElementById("mainPage");
+        var para = document.createElement("P");
+        var time_ele = document.createElement("span");
+
+        var div = document.createElement("div");
+        var mess = document.getElementById("mess").value;
+
+
+        var message = {};
+        if (this.is_color) {
+            div.setAttribute("class", "container darker ");
+            time_ele.setAttribute("class", "time-left");
+            document.getElementById('mess').value = ""
+        } else {
+
+            div.setAttribute("class", "container light");
+            time_ele.setAttribute("class", "time-right");
+            document.getElementById('mess').value = ""
+        }
+        var date = new Date();
+        var time = `${date.getHours()}:${date.getMinutes()}`;
+        message = {
+            "message": mess,
+            "isColor": is_color,
+            "time": time
+        }
+        msg_body.push(message);
+        localStorage.setItem("chat", JSON.stringify(msg_body));
+        this.is_color = !this.is_color;
+        para.innerHTML = mess;
+        time_ele.innerHTML = time;
+        div.appendChild(para);
+        div.appendChild(time_ele);
+        parentEl.appendChild(div);
+        // element.appendChild(t);
+        console.log("enddd", parentEl);
+    }
+
+</script>
+
+</html>

@@ -1,0 +1,388 @@
+<html>
+
+<head>
+    <title>Welcome To Admin Dashboard</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+        crossorigin="anonymous">
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <!-- JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+
+    <script src="../lib/jquery-1.12.4.min.js"></script>
+    <script src="../lib/jquery.mobile-1.4.5.min.js"></script>
+
+    <script>
+        function gotoDescription() {
+            document.location.href = "C:\\Users\\Purushoth\\Desktop\\main\\purushoth\\iphone\\description.html";
+        };
+        function gotoMAap() {
+            document.location.href = "C:\\Users\\Purushoth\\Desktop\\main\\purushoth\\iphone\\location.html"
+        };
+        function gotoHome() {
+            document.location.href = "C:\\Users\\Purushoth\\Desktop\\main\\jquery\\Chapter\\MyApp.html#homePage"
+        };
+        function gotofeedback() {
+            document.location.href = "C:\\Users\\Purushoth\\Desktop\\main\\abeeshan\\FeedBack.HTML"
+        };
+        function gotogamification() {
+            document.location.href = "C:\\Users\\Purushoth\\Desktop\\main\\abeeshan\\Gamification.HTML"
+        };
+        function gotoleaderBoard() {
+            document.location.href = "C:\\Users\\Purushoth\\Desktop\\main\\abeeshan\\LeaderBoard.HTML"
+        };
+        function gototickets() {
+            document.location.href = "C:\\Users\\Purushoth\\Desktop\\main\\jquery\\Chapter\\MyApp.html#ticketingPage"
+        };
+        function LogOut() {
+            document.location.href = "C:\\Users\\Purushoth\\Desktop\\main\\jquery\\Chapter\\MyApp.html#intropage"
+        };
+        function Covid(){
+            window.open('https://www.ecdc.europa.eu/en/geographical-distribution-2019-ncov-cases', '_blank');
+            // document.location.href="/Users/senthan/Desktop/Uiux submission /main/jquery/Chapter/MyApp.html#intropage"
+        };
+    </script>
+
+
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+
+
+
+    <style>
+        html {
+            background-image: url('../assets/background.png') !important;
+        }
+
+        thead {
+            background: #000000;
+            color: white;
+        }
+
+
+        .sidebar-container {
+            position: fixed;
+            width: 265px;
+            height: 100%;
+            left: 0;
+            top: 0;
+            overflow-x: hidden;
+            overflow-y: auto;
+            background: #02386E;
+            color: #fff;
+        }
+
+        .content-container {
+            padding-top: 20px;
+        }
+
+        .sidebar-logo {
+            padding-left: 85px !important;
+            padding-top: 19px;
+            padding-right: 32px;
+            font-size: 20px;
+            background-color: #00264D;
+            width: 100%;
+            height: 131px;
+        }
+
+        .sidebar-navigation {
+            padding: 0;
+            margin: 0;
+            list-style-type: none;
+            position: relative;
+        }
+
+        .sidebar-navigation li {
+            background-color: transparent;
+            position: relative;
+            display: inline-block;
+            width: 100%;
+            line-height: 20px;
+        }
+
+        .sidebar-navigation li a {
+            padding: 10px 15px 10px 30px;
+            display: block;
+            color: #fff;
+
+        }
+
+        /* .sidebar-navigation li .fa {
+      margin-right: 10px;
+  } */
+
+        /* .sidebar-navigation li a:active, .sidebar-navigation li a:hover,
+      .sidebar-navigation li a:focus {
+      text-decoration: none;
+      outline: none;
+  } */
+
+        /* blue hover each option */
+        .sidebar-navigation li::before {
+            background-color: #2574A9;
+            position: absolute;
+            content: '';
+            height: 100%;
+            left: 0;
+            top: 0;
+            -webkit-transition: width 0.2s ease-in;
+            transition: width 0.2s ease-in;
+            width: 3px;
+            z-index: -1;
+        }
+
+        .sidebar-navigation li:hover::before {
+            width: 100%;
+        }
+
+        /* header user name  */
+        .sidebar-navigation .header {
+            font-size: 12px;
+            text-transform: uppercase;
+            background-color: #02386E;
+            padding: 10px 15px 10px 30px;
+        }
+
+        /* .sidebar-navigation .header::before {
+      background-color: transparent;
+  } */
+
+        /* .content-container {
+      padding-left: 220px;
+  } */
+
+        /* listof item in navigation */
+        .sidebar-navigation li a {
+            padding: 10px 15px 10px 30px;
+            display: block;
+            color: #fff;
+            line-height: 40px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        /* .switch {
+  display: inline-block;
+  width: 50px;
+  height: 15px;
+  margin: 4px;
+  padding-left: 48px !important;
+  transform: translateY(50%);
+  position: relative;
+} */
+
+        /* Style Wired */
+        /* .slider {
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  border-radius:30px;
+  box-shadow:0 0 0 2px #777, 0 0 4px #777;
+  cursor:pointer;
+  border:4px solid transparent;
+  overflow:hidden;
+   transition:.4s;
+} */
+
+        /* .slider:before {
+  position:absolute;
+  content:"";
+  width:100%;
+  height:100%;
+  background:#777;
+  border-radius:30px;
+  transform:translateX(-30px);
+  transition:.4s;
+} */
+
+        /* input:checked + .slider:before {
+  transform:translateX(30px);
+  background:limeGreen;
+} */
+        /* input:checked + .slider {
+  box-shadow:0 0 0 2px limeGreen,0 0 2px limeGreen;
+} */
+
+        /* Style Flat */
+        .switch.flat .slider {
+            box-shadow: none;
+        }
+
+        .switch.flat .slider:before {
+            background: #FFF;
+        }
+
+        .switch.flat input:checked+.slider:before {
+            background: white;
+        }
+
+        .switch.flat input:checked+.slider {
+            background: limeGreen;
+        }
+
+        /* @media only screen and (max-width: 600px) {
+.sidebar-link{
+    display: none;
+} */
+
+        .sidebar-container {
+
+            width: 100%;
+            padding: 0px;
+            margin: 0px;
+        }
+
+        /* .sidebar-navigation li a  {
+  padding:18px !important;
+
+} */
+        /* .sidebar-logo {
+ display: none;
+} */
+        .header {
+            font-size: 11px;
+
+        }
+
+        .sidebar-navigation .header {
+            font-size: 17px;
+            padding: 13px;
+            margin-left: 20px;
+        }
+
+        /* iphone 678 */
+        @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+            .sidebar-container {
+                width: 100%;
+            }
+
+            .sidebar-navigation.header {
+                background-color: #02386E;
+
+            }
+
+            .sidebar-navigation {
+                position: relative;
+
+            }
+
+        }
+
+        /* Portrait and Landscape */
+        @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
+
+            .sidebar-navigation.header {
+                background-color: #02386E;
+
+            }
+
+            .sidebar-container {
+                width: 100%;
+            }
+
+
+
+
+        }
+
+        @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
+
+            .sidebar-link{
+                font-weight: 9em;
+                padding-left: 50px;
+            }
+
+            .sidebar-navigation{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                height: 80%;
+            }
+        }
+        .logo-image {
+            width: 120px;
+            height: 120px;
+            overflow: hidden;
+            border-radius: 50%;
+        }
+
+        .logo-image img {
+            height: 120px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- WRAPPER -->
+    <div data-role="header" id="wrapper" class="header-bar">
+
+        <div class="sidebar-container">
+            <div class="sidebar-logo">
+
+                <div class="logo-image">
+                    <img src="nz1.png" class="img-fluid">
+                </div>
+
+            </div>
+            <ul class="sidebar-navigation">
+                <li class="header">User Name : Jeny
+                    <label class="switch">
+                        <!-- <input type="checkbox"> -->
+                        <span class="slider"></span>
+                    </label>
+                </li>
+
+                <li><a onclick="gotoHome()"> <i class='fas fa-home mr-2 ' style="font-size:24px "></i><span
+                            class="sidebar-link" style="padding-left: 1em;">Home</span>
+                    </a></li>
+                <li><a onclick="gotoDescription()"> <i class='far fa-user-circle mr-2' style='font-size:24px'></i><span
+                            class="sidebar-link" style="padding-left: 1em;">My Profile</span>
+                    </a></li>
+
+
+
+
+                <li><a onclick="gototickets()"> <i class='fas fa-train mr-2' style='font-size:24px'></i><span
+                            class="sidebar-link" style="padding-left: 1em;">Train Tickets</span>
+                    </a></li>
+                <li><a onclick="gotoMAap()"><i class='fas fa-directions mr-2' style='font-size:24px'></i><span
+                            class="sidebar-link" style="padding-left: 1em;">Map</span>
+                    </a></li>
+                <li><a onclick="gotoleaderBoard()"> <i class='fas fa-bullhorn mr-2' style='font-size:24px'></i><span
+                            class="sidebar-link" style="padding-left: 1em;">Leader Board</span>
+                    </a></li>
+
+                <li><a onclick="gotogamification()"><i class='fas fa-gamepad mr-2' style='font-size:24px'></i><span
+                            class="sidebar-link" style="padding-left: 1em;">Gamification</span>
+                    </a></li>
+                <li><a onclick="gotofeedback()"> <i class='far fa-comments mr-2' style='font-size:24px'></i><span
+                            class="sidebar-link" style="padding-left: 1em;">Feed Back</span>
+                    </a></li>
+                <li><a onclick="Covid()"><i class='far fa-bell mr-2' style='font-size:24px'></i><span
+                            class="sidebar-link" style="padding-left: 1em;">Covid 19 Alerts</span>
+                    </a></li>
+                <li><a onclick="LogOut()"> <i class="fas fa-sign-out-alt mr-2"></i><span class="sidebar-link"
+                            style="padding-left: 1em;">
+                            LogOut</span>
+                    </a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>

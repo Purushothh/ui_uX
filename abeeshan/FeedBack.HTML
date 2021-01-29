@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Gamification</title>
+    <link rel="stylesheet" href="CSS/Styles.css">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/themes/my-custom-theme.css" />
+    <link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css" />
+   
+
+    <style>
+        .emojiset {
+            height: 45px;
+        }
+
+        #emoji {
+            list-style: none;
+            position: absolute;
+            top: 50%;
+            left: 0%;
+            margin: auto;
+            z-index: 99;
+        }
+
+        .gradingsetting {
+            margin-top: 50px;
+            margin-left: 50px;
+        }
+
+
+        #emoji li {
+            display: inline-block;
+            margin-left: 12px;
+            margin-right: 12px;
+        }
+
+
+        #dot {
+            height: 3px;
+            width: 3px;
+            background-color: #FFEB66;
+            transition: all .3s;
+        }
+
+        .buttonsw {
+            width: 60%;
+            text-align: center;
+            display: grid;
+            justify-items: center;
+            margin: auto;
+        }
+
+        .button2 {
+            background-color: #1a508b;
+            background-image: linear-gradient(175deg, #2574A9 28%, #2574A9 85%);
+            color: wheat;
+            color: white !important;
+            font-size: 4vw !important;
+            font-weight: 100;
+        }
+
+        .feedbacklinkbtn1 {
+            margin-top: 10%;
+        }
+
+        @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) {
+
+            .emojiset {
+                height: 60px;
+            }
+        }
+
+        @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
+            .emojiset {
+                height: 65px;
+            }
+
+            #emoji {
+                top: 170%;
+                left: 21%;
+            }
+        }
+
+        @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+            .emojiset {
+                height: 65px;
+            }
+
+            #emoji {
+                top: 170%;
+                left: 18%;
+            }
+        }
+
+        @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {
+            .emojiset {
+                height: 100px;
+            }
+
+            #emoji {
+                top: 70%;
+                left: 12%;
+            }
+        }
+
+        @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+            .emojiset {
+                height: 130px;
+            }
+
+            #emoji {
+                top: 120%;
+                left: 15%;
+            }
+        }
+
+        @media only screen and (min-device-width: 1024px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {
+            .emojiset {
+                height: 130px;
+            }
+
+            #emoji {
+                top: 70%;
+                left: 15%;
+            }
+        }
+
+        @media only screen and (min-device-width: 1366px) and (max-device-width: 1366px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+            .emojiset {
+                height: 150px;
+            }
+
+            #emoji {
+                top: 130%;
+                left: 20%;
+            }
+        }
+    </style>
+    <script>
+        function myFunction() {
+            document.location.href = "./ThumbsUp.HTML";
+        }
+    </script>
+</head>
+
+<body>
+    <div data-role="page" class="ui-content">
+        <div data-role="header">
+            <a id="headercolor" >
+                <img onclick="gotoNavbar()" id="Qrcode" src="IMAGES\Burger.png">
+                <img onclick=" gotoQr()" id="Logo" src="IMAGES\qrcode.png">
+            </a>
+        </div>
+
+        <div data-role="main">
+            <h1 style="font-size:9vw; margin-top: 25%;">FEEDBACK</h1>
+
+            <P class="fig5" style="font-size:9vw;"> How this application use for you ?</P>
+
+
+            <div class="gradingsetting">
+                <ul id="emoji">
+                    <li><img class="emojiset" src="Assests\Emojies\emoji11.png" /><br><b>SICK</b></li>
+                    <li><img class="emojiset" src="Assests\Emojies\emoji22.png" /><br><b>BAD</b></li>
+                    <li><img class="emojiset" src="Assests\Emojies\emoji33.png" /><br><b>OKAY</b></li>
+                    <li><img class="emojiset" src="Assests\Emojies\emoji44.png" /><br><b>GOOD</b></li>
+                    <li><img class="emojiset" src="Assests\Emojies\emoji55.png" /><br><b>GREAT</b></li>
+                </ul>
+
+            </div>
+            <div class="feedbacklinkbtn">
+
+                <div class="buttonsw">
+                    <button class="button2" onclick="myFunction()">Submit</button>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div data-role="footer" data-position="fixed">
+            <!-- fixed footer -->
+            <div data-role="navbar">
+                <ul>
+                    <li><a onclick="gotoHome()" data-icon="arrow-l"></a></li>
+                    <li><a onclick="gotoHome()" data-icon="home"></a></li>
+                    <li><a onclick="gotoprofile()" data-icon="user"></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $("#emoji li:nth-child(1)").hover(function () {
+                $("#dot").css("margin-left", "0px");
+                function explode() {
+                    $("#emoji li:nth-child(1) img").attr("src", "Assests\\Emojies\\emoji1.png");
+                    $("#emoji li:nth-child(2) img").attr("src", "Assests\\Emojies\\emoji22.png");
+                    $("#emoji li:nth-child(3) img").attr("src", "Assests\\Emojies\\emoji33.png");
+                    $("#emoji li:nth-child(4) img").attr("src", "Assests\\Emojies\\emoji44.png");
+                    $("#emoji li:nth-child(5) img").attr("src", "Assests\\Emojies\\emoji55.png");
+                    $("#note li:nth-child(1)").css("color", "white");
+                    $("#note li:nth-child(2)").css("color", "#3A6D88");
+                    $("#note li:nth-child(3)").css("color", "#3A6D88");
+                    $("#note li:nth-child(4)").css("color", "#3A6D88");
+                    $("#note li:nth-child(5)").css("color", "#3A6D88");
+                }
+                setTimeout(explode, 300);
+            });
+            $("#emoji li:nth-child(2)").hover(function () {
+                $("#dot").css("margin-left", "60px");
+                function explode() {
+                    $("#emoji li:nth-child(1) img").attr("src", "Assests\\Emojies\\emoji11.png");
+                    $("#emoji li:nth-child(2) img").attr("src", "Assests\\Emojies\\emoji2.png");
+                    $("#emoji li:nth-child(3) img").attr("src", "Assests\\Emojies\\emoji33.png");
+                    $("#emoji li:nth-child(4) img").attr("src", "Assests\\Emojies\\emoji44.png");
+                    $("#emoji li:nth-child(5) img").attr("src", "Assests\\Emojies\\emoji55.png");
+                    $("#note li:nth-child(1)").css("color", "#3A6D88");
+                    $("#note li:nth-child(2)").css("color", "white");
+                    $("#note li:nth-child(3)").css("color", "#3A6D88");
+                    $("#note li:nth-child(4)").css("color", "#3A6D88");
+                    $("#note li:nth-child(5)").css("color", "#3A6D88");
+                }
+                setTimeout(explode, 300);
+            });
+            $("#emoji li:nth-child(3)").hover(function () {
+                $("#dot").css("margin-left", "120px");
+                function explode() {
+                    $("#emoji li:nth-child(1) img").attr("src", "Assests\\Emojies\\emoji11.png");
+                    $("#emoji li:nth-child(2) img").attr("src", "Assests\\Emojies\\emoji22.png");
+                    $("#emoji li:nth-child(3) img").attr("src", "Assests\\Emojies\\emoji3.png");
+                    $("#emoji li:nth-child(4) img").attr("src", "Assests\\Emojies\\emoji44.png");
+                    $("#emoji li:nth-child(5) img").attr("src", "Assests\\Emojies\\emoji55.png");
+                    $("#note li:nth-child(1)").css("color", "#3A6D88");
+                    $("#note li:nth-child(2)").css("color", "#3A6D88");
+                    $("#note li:nth-child(3)").css("color", "white");
+                    $("#note li:nth-child(4)").css("color", "#3A6D88");
+                    $("#note li:nth-child(5)").css("color", "#3A6D88");
+                }
+                setTimeout(explode, 300);
+            });
+            $("#emoji li:nth-child(4)").hover(function () {
+                $("#dot").css("margin-left", "180px");
+                function explode() {
+                    $("#emoji li:nth-child(1) img").attr("src", "Assests\\Emojies\\emoji11.png");
+                    $("#emoji li:nth-child(2) img").attr("src", "Assests\\Emojies\\emoji22.png");
+                    $("#emoji li:nth-child(3) img").attr("src", "Assests\\Emojies\\emoji33.png");
+                    $("#emoji li:nth-child(4) img").attr("src", "Assests\\Emojies\\emoji4.png");
+                    $("#emoji li:nth-child(5) img").attr("src", "Assests\\Emojies\\emoji55.png");
+                    $("#note li:nth-child(1)").css("color", "#3A6D88");
+                    $("#note li:nth-child(2)").css("color", "#3A6D88");
+                    $("#note li:nth-child(3)").css("color", "#3A6D88");
+                    $("#note li:nth-child(4)").css("color", "white");
+                    $("#note li:nth-child(5)").css("color", "#3A6D88");
+                }
+                setTimeout(explode, 300);
+            });
+            $("#emoji li:nth-child(5)").hover(function () {
+                $("#dot").css("margin-left", "240px");
+                function explode() {
+                    $("#emoji li:nth-child(1) img").attr("src", "Assests\\Emojies\\emoji11.png");
+                    $("#emoji li:nth-child(2) img").attr("src", "Assests\\Emojies\\emoji22.png");
+                    $("#emoji li:nth-child(3) img").attr("src", "Assests\\Emojies\\emoji33.png");
+                    $("#emoji li:nth-child(4) img").attr("src", "Assests\\Emojies\\emoji44.png");
+                    $("#emoji li:nth-child(5) img").attr("src", "Assests\\Emojies\\emoji5.png");
+                    $("#note li:nth-child(1)").css("color", "#3A6D88");
+                    $("#note li:nth-child(2)").css("color", "#3A6D88");
+                    $("#note li:nth-child(3)").css("color", "#3A6D88");
+                    $("#note li:nth-child(4)").css("color", "#3A6D88");
+                    $("#note li:nth-child(5)").css("color", "white");
+                }
+                setTimeout(explode, 300);
+            });
+        });  
+    </script>
+ <script>
+    function gotoHome() {
+        document.location.href = "C:\\Users\\Purushoth\\Desktop\\main\\jquery\\Chapter\\MyApp.html#homePage"
+    };
+    function gotoprofile() {
+        document.location.href = "C:\\Users\\Purushoth\\Desktop\\main\\purushoth\\iphone\\description.html"
+    };
+    function gotoNavbar(){
+        document.location.href = "C:\\Users\\Purushoth\\Desktop\\main\\senthan\\iphone\\index.html";
+    };
+    function  gotoQr(){
+        document.location.href = "C:\\Users\\Purushoth\\Desktop\\main\\senthan\\iphone\\qr.html";
+    };
+
+
+</script>
+</body>
+
+</html>
